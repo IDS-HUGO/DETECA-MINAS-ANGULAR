@@ -1,0 +1,15 @@
+.grid {
+    display: grid;
+    gap: 5px;
+  }
+  .row {
+    display: flex;
+  }
+  button {
+    width: 30px;
+    height: 30px;
+  }
+  button.bomba {
+    background-color: red;
+  }
+  
