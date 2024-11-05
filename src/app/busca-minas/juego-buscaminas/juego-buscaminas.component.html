@@ -1,1 +1,21 @@
-<p>juego-buscaminas works!</p>
+<div>
+    <label for="tamanoCuadricula">Ingresa la cantidad de cuadritos 'N' :</label>
+    <input type="number" id="N X N" [(ngModel)]="tamanoCuadricula">
+  
+    <label for="cantidadBombas">Ingrese la cantidad de bombas:</label>
+    <input type="number" id="cantidadBombas" [(ngModel)]="cantidadBombas">
+  
+    <button (click)="iniciarJuego()">COMENZAR EL JUEGO</button>
+  </div>
+  
+  <div *ngIf="cuadricula.length" class="grid">
+    <div *ngFor="let fila of cuadricula; let indiceFila = index" class="row">
+      <button *ngFor="let celda of fila; let indiceColumna = index" 
+              [disabled]="celda.revelado" 
+              (click)="revelarCelda(indiceFila, indiceColumna)"
+              [class.bomba]="celda.esBomba && juegoTerminado">
+        {{ celda.revelado ? (celda.esBomba ? '💣' : celda.bombasCercanas || '') : '' }}
+      </button>
+    </div>
+  </div>
+  
